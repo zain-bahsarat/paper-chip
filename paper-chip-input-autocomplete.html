@@ -116,6 +116,8 @@ Custom property | Description | Default
 						 on-keyup="_findItems"
 						 value="{{_inputValue}}"
 						 autofocus="{{autofocus}}"
+						 on-focus="_findItems"
+						 on-blur="_updateAutoCompleteClass"
 						 allowed-pattern="[[allowedPattern]]"
 						 pattern="[[pattern]]"
 						 required$="[[required]]"
@@ -170,6 +172,14 @@ Custom property | Description | Default
 					minSearchStringLength: {
 						type: Number,
 						value: 2
+					},
+
+					/**
+ 					* The max items which can be selected
+ 					*/
+					 maxInputItemsLength: {
+						type: Number,
+						value: -1
 					},
 
 					/**
@@ -375,8 +385,15 @@ Custom property | Description | Default
 				}
 			}
 
+			_updateAutoCompleteClass(event) {
+				let listBoxEl = this.shadowRoot.querySelector('#listbox')
+				if (!this._isHovered(listBoxEl)) {
+					this._hideAutocomplete();
+				}
+			}
+
 			_findItems(event) {
-				if (this._inputValue.length == 0) {
+				if (this._inputValue.length == 0 && this.minSearchStringLength > 0) {
 					this._autocompleteClass = "hide";
 				}
 
@@ -414,6 +431,10 @@ Custom property | Description | Default
 			}
 
 			_selectPaperItem(event) {
+				if (this.maxInputItemsLength != -1 && this.items.length >= this.maxInputItemsLength) {
+					return
+				}
+
 				this._saveTag(event.model.item.text);
 				this.required = false;
 				this.autoValidate = false;
@@ -461,6 +482,10 @@ Custom property | Description | Default
 					composed: true,
 					bubbles: true
 				}));
+			}
+
+			_isHovered(e) {
+				return (e.parentElement.querySelector(':hover') === e);
 			}
 
 		}
