@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
-<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-input-custom/paper-input-custom.html">
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../paper-material/paper-material.html">
@@ -80,7 +80,7 @@ Custom property | Description | Default
 				--paper-listbox-color: var(--paper-chip-autocomplete-suggestion-text-color, var(--primary-text-color));
 			}
 
-			paper-input {
+			paper-input-custom {
 				--paper-input-container-focus-color: var(--paper-chip-autocomplete-focus-color, var(--primary-color));
 
 				--paper-input-container-input: {
@@ -109,7 +109,7 @@ Custom property | Description | Default
 		<iron-a11y-keys target="[[_paperInputElement]]" keys="up" on-keys-pressed="_onKeyUpOrDown"></iron-a11y-keys>
 
 		<div>
-			<paper-input id="paperInput"
+			<paper-input-custom id="paperInput"
 						 disabled$="[[disabled]]"
 						 readonly$="[[readonly]]"
 						 label="[[label]]"
@@ -135,7 +135,7 @@ Custom property | Description | Default
 								</template>
 							</dom-repeat>
 						 </div>
-			</paper-input>
+			</paper-input-custom>
 		</div>
 
 		<dom-if if="[[_isEmpty(_filteredSource)]]">

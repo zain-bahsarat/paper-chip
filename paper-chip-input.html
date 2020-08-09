@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-input-custom/paper-input-custom.html">
 <link rel="import" href="../paper-styles/default-theme.html">
 <link rel="import" href="paper-chip.html">
 
@@ -54,7 +54,7 @@ Custom property | Description | Default
 		<iron-a11y-keys target="[[_paperInputElement]]" keys="enter" on-keys-pressed="_onKeyEnter"></iron-a11y-keys>
 		<iron-a11y-keys target="[[_paperInputElement]]" keys="backspace" on-keys-pressed="_onKeyBackspace"></iron-a11y-keys>
 
-		<paper-input id="paperInput"
+		<paper-input-custom id="paperInput"
 					 always-float-label$="[[alwaysFloatLabel]]"
 					 auto-validate$="[[autoValidate]]"
 					 no-label-float$="[[noLabelFloat]]"
@@ -79,7 +79,7 @@ Custom property | Description | Default
 							</template>
 						</dom-repeat>
 					</div>
-		</paper-input>
+		</paper-input-custom>
 
 	</template>
 
