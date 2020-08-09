@@ -11,7 +11,7 @@
 	"dependencies": {
 		"polymer": "Polymer/polymer#^v2.0.0",
 		"paper-icon-button": "PolymerElements/paper-icon-button#^2.0.0",
-		"paper-input": "PolymerElements/paper-input#^2.0.2",
+		"paper-input-custom": "sushilparajuli/paper-input-custom#2.0.12",
 		"paper-item": "PolymerElements/paper-item#^2.0.0",
 		"paper-listbox": "PolymerElements/paper-listbox#^2.0.0",
 		"paper-material": "PolymerElements/paper-material#^2.0.0",
